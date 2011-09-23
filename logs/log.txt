@@ -15,5 +15,5 @@
 5. Install gem
   $gem install book_rename-[version].gem
   
-  
+6. Add gem 'amazon_product' to use Amazon web service
 
