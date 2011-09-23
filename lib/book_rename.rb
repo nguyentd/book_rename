@@ -39,7 +39,7 @@ module BookRename
   
   def BookRename.extract_isbn(filename)
     result = ""
-    if filename =~ /(^|\D+)(\d{10}|\d{9}X)\D*/
+    if filename =~ /(^|\D+)([\d\-]{9,}[\dX])\D*/
         result = $2
     end
     result
