@@ -42,7 +42,7 @@ module BookRename
     if filename =~ /(^|\D+)([\d\-]{9,}[\dX])\D*/
         result = $2
     end
-    result
+    result.gsub('/\-/','')
   end
   
 end
