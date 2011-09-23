@@ -28,7 +28,7 @@ module BookRename
     resp['Item'].each do |item|
       mybook['ISBN'] = item['ASIN']
       mybook['Title'] =  item['ItemAttributes']['Title'].gsub(/#/,'Sharp').gsub(/C\+\+/,'Cpp').gsub(/[^\(\)\-\s\.\w]/,'')
-      mybook['Publisher'] =  item['ItemAttributes']['Manufacturer'].gsub(/[\'\s]/,'.')
+      mybook['Publisher'] =  item['ItemAttributes']['Manufacturer'].gsub(/[\'\s]/,'.').gsub(/[^\.|\w]/,'')
     end
     mybook
   end
@@ -42,7 +42,7 @@ module BookRename
     if filename =~ /(^|\D+)([\d\-]{9,}[\dX])\D*/
         result = $2
     end
-    result.gsub('/\-/','')
+    result.gsub(/\-/,'')
   end
   
 end
