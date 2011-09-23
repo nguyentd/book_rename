@@ -4,27 +4,27 @@ require 'book_rename'
 
 module BookRename
   class CLI < Thor    
-    default_task :search
+    default_task :rename
     # extend BookRename
 
-    desc "search isbn", "Search book by isbn"
-    def search(isbn)
-      mybook =BookRename.find_book_by_isbn_10 isbn
-      puts BookRename.get_file_name(mybook)
-      mybook
-    end    
-
-    desc "extract_isbn filename", "Extract isbn from file name"
-    def extract_isbn filename
-      puts BookRename.extract_isbn filename
-    end
-
-    desc "list", ""
-    def list()
-      Dir.glob("*.*") { |filename| 
-        puts filename        
-      }
-    end
+    # desc "search isbn", "Search book by isbn"
+    # def search(isbn)
+    #   mybook =BookRename.find_book_by_isbn_10 isbn
+    #   puts BookRename.get_file_name(mybook)
+    #   mybook
+    # end    
+    # 
+    # desc "extract_isbn filename", "Extract isbn from file name"
+    # def extract_isbn filename
+    #   puts BookRename.extract_isbn filename
+    # end
+    # 
+    # desc "list", ""
+    # def list()
+    #   Dir.glob("*.*") { |filename| 
+    #     puts filename        
+    #   }
+    # end
 
     desc "rename path", "rename all pdf file in the path"
     def rename path='.'
