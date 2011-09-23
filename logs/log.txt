@@ -9,7 +9,11 @@
 3.Add file cli.rb with class CLI < Thor
   define some task here
   
-
+4. To build gem
+  $gem build book_rename.gemspec
+  
+5. Install gem
+  $gem install book_rename-[version].gem
   
   
 
