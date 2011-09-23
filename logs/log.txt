@@ -1,0 +1,15 @@
+1. Create project:
+  $bundle gem book_rename
+  
+2.Edit "book_rename.gemspec"
+  edit todo
+  s.add_dependency "thor"
+
+
+3.Add file cli.rb with class CLI < Thor
+  define some task here
+  
+
+  
+  
+
