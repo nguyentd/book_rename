@@ -34,14 +34,20 @@ module BookRename
         puts "creating directory \"#{done_folder}\""
         Dir.mkdir("done")
       end
-      Dir.glob("*.pdf") { |filename| 
-        isbn = BookRename.extract_isbn filename
-        if isbn.length > 0
-          mybook = BookRename.find_book_by_isbn_10 isbn
-          newFileName = BookRename.get_file_name(mybook)
-          puts newFileName
-          newFileName = (done_folder + "/" + newFileName)
-          File.rename(filename, newFileName)
+      Dir.glob("*.{pdf,mobi,epub,chm,djvu}") { |filename| 
+        begin
+          ext = File.extname(filename)
+          isbn = BookRename.extract_isbn filename
+          if isbn.length > 0
+            mybook = BookRename.find_book_by_isbn_10 isbn
+            newFileName = BookRename.get_file_name(mybook)
+            newFileName << "#{ext}"
+            puts newFileName
+            newFileName = (done_folder + "/" + newFileName)
+            File.rename(filename, newFileName)
+          end
+        rescue RuntimeError
+          
         end
       }
       
